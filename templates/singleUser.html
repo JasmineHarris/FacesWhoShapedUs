@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+<br><br>  
+<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Blog Posts</h1>
+
+    <div>
+        {% for blog in posts %}
+            <h2><a href="./blog?id={{blog.id}}">{{blog.title}}</a></h2>
+            <p class="entry">{{blog.post}}</p>
+            <!-- owner was declared in the backref -->
+            <p class="byline">Written by <a href="./blog?owner_id={{blog.owner_id}}">{{blog.owner.username}}</a></p>
+            <hr>
+        {% endfor %}
+    </div>
+    
+
+{% endblock %}
